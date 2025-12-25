@@ -1,6 +1,3 @@
-export const dynamicParams = false
-export const generateStaticParams = () => []
-
 import getPage from '@/lib/getPage'
 import { notFound } from 'next/navigation'
 import SectionHero from '@/sections/SectionHero'
