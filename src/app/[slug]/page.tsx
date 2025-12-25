@@ -1,6 +1,3 @@
-export const dynamicParams = false
-export const generateStaticParams = () => []
-
 import getPage from '@/lib/getPage'
 import { notFound } from 'next/navigation'
 import SectionHero from '@/sections/SectionHero'
@@ -17,7 +14,7 @@ export async function generateMetadata({ params }: PageProps) {
   const page = await getPage(slug)
 
   if (!page) {
-    return { title: 'Страница не найдена' }
+    return notFound()
   }
 
   return {
