@@ -1,5 +1,5 @@
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export const dynamicParams = false
+export const generateStaticParams = () => []
 
 import getPage from '@/lib/getPage'
 import { notFound } from 'next/navigation'
