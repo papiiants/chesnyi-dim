@@ -1,0 +1,14 @@
+.footer {
+  position: relative;
+  padding-top: var(--section-padding-y);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('http://chesnyi-dim.com.ua/wp-content/uploads/2024/04/logo_01_white_20.svg') no-repeat 10% 100% / auto 80%;
+    opacity: 0.3;
+  }
+}

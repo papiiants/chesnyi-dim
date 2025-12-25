@@ -1,0 +1,27 @@
+.toolbar {
+  display: none;
+
+  @include laptop {
+    font-size: 14px ;
+  }
+
+  @include mobile-above {
+    display: block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      column-gap: 20px;
+      padding-block: 15px;
+    }
+
+    &__contacts {
+      display: flex;
+      align-items: center;
+      column-gap: 30px;
+    }
+  }
+}

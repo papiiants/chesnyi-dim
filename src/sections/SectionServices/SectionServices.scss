@@ -1,0 +1,111 @@
+.section-services {
+  .services-list {
+    --columns: 4;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: fluid(40, 20);
+    list-style: none;
+
+    &__item {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: calc(100% / var(--columns) - #{fluid(40, 20)} * 3 / var(--columns));
+      border: var(--border);
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      transition-duration: var(--transition-duration);
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: url("https://chesnyi-dim.com.ua/wp-content/uploads/2024/04/logo_01.svg") 50% 50% / contain no-repeat;
+        opacity: 0.05;
+        z-index: -1;
+      }
+
+      @include tablet {
+        --columns: 3;
+      }
+
+      @include mobile {
+        --columns: 1;
+      }
+
+      @include hover{
+        translate: 0 -5px;
+      }
+    }
+
+    &__link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 180px;
+      padding: fluid(30, 20);
+      color: var(--color-primary);
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      line-height: 1.2;
+
+      &:has(.services-list__inner ul) {
+        @include hover {
+          .services-list__inner {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+    }
+
+    &__inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      opacity: 0;
+      visibility: hidden;
+      transition-duration: var(--transition-duration);
+      background-color: var(--color-bg);
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        row-gap: 10px;
+        list-style: none;
+        padding: 0;
+
+        li {
+          position: relative;
+          font-size: 12px;
+
+          &:not(:last-child) {
+            &::after {
+              content: '';
+              position: absolute;
+              bottom: -6px;
+              left: 50%;
+              translate: -50% 0;
+              width: 60%;
+              height: 1px;
+              background-color: var(--color-primary);
+            }
+          }
+        }
+      }
+    }
+  }
+}

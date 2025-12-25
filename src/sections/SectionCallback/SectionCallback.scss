@@ -1,0 +1,36 @@
+.section-callback {
+  background-color: var(--color-bg);
+   &--has-upper-shadow {
+     box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+   }
+
+  &__inner {
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 1000px;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+    }
+   }
+
+  &__title {
+    max-width: 430px;
+
+    @include mobile {
+      max-width: 100%;
+      text-align: center;
+      align-items: center;
+    }
+
+    &--decorated {
+      &::after {
+        @include mobile {
+          left: 50%;
+          translate: -50% 0;
+        }
+      }
+    }
+  }
+}

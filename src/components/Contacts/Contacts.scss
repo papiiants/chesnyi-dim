@@ -1,0 +1,33 @@
+.contacts {
+  display: flex;
+  justify-content: space-between;
+  gap: fluid(60, 20);
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  &__title {
+    color: inherit;
+
+    &::after {
+      height: 2px;
+    }
+  }
+
+  &__button {
+    align-self: flex-start;
+  }
+}

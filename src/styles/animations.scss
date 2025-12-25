@@ -1,0 +1,72 @@
+$reveal-duration: 0.6s;
+$reveal-easing: ease-out;
+$reveal-delay-var: '--reveal-delay';
+
+.reveal {
+  opacity: 0;
+  transition:
+    opacity $reveal-duration $reveal-easing,
+    transform $reveal-duration $reveal-easing;
+
+  transition-delay: var(#{$reveal-delay-var}, 0s);
+
+  &.in-view {
+    opacity: 1;
+    transform: none !important;
+  }
+}
+
+.reveal {
+  &.fade-up {
+    transform: translateY(60px);
+  }
+
+  &.fade-down {
+    transform: translateY(-60px);
+  }
+
+  &.fade {
+    transform: none;
+  }
+
+  &.slide-left {
+    transform: translateX(-80px);
+  }
+
+  &.slide-right {
+    transform: translateX(80px);
+  }
+
+  &.scale-in {
+    transform: scale(0.9);
+  }
+
+  &.scale-up {
+    transform: scale(1.1);
+  }
+
+  &.rotate-in {
+    transform: rotate(-10deg);
+  }
+
+  &.blur-in {
+   filter: blur(10px);
+   &.in-view {
+     filter: blur(0);
+   }
+  }
+}
+
+// Поддержка prefers-reduced-motion
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+
+    &.in-view {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+}

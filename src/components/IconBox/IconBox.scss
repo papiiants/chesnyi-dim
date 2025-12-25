@@ -1,0 +1,33 @@
+.icon-box {
+  display: grid;
+  grid-template-columns: 16px 1fr;
+  column-gap: 15px;
+  color: inherit;
+  font-weight: 200;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__icon {
+    svg {
+      stroke-width: 1px;
+    }
+  }
+
+  &__title {
+    font-weight: 400;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    transition-duration: var(--transition-duration);
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}

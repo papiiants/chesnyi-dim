@@ -1,7 +1,26 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
+import path from 'path'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'chesnyi-dim.com.ua',
+        port: '',
+        pathname: '/**'
+      }
+    ]
+  },
 
-export default nextConfig;
+  sassOptions: {
+    includePaths: [path.join(process.cwd(), 'src/styles')],
+
+    prependData: `
+      @import "@/styles/mixins.scss";
+      @import "@/styles/functions.scss";
+    `.trim()
+  }
+}
+
+export default nextConfig

@@ -1,0 +1,48 @@
+.header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition-duration: var(--transition-duration);
+
+  @include mobile {
+    display: contents;
+  }
+
+  @include mobile-above {
+    z-index: 100;
+    position: fixed;
+    top: 80px;
+
+    &__logo {
+      margin-block: -20px;
+    }
+
+    &--sticky {
+      top: 20px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  &__logo {
+    img {
+      width: 120px;
+      height: auto;
+    }
+  }
+
+  @include laptop-above {
+    &__logo {
+      img {
+        width: 180px;
+        height: auto;
+      }
+    }
+  }
+}
