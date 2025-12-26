@@ -1,6 +1,8 @@
-import Link from 'next/link'
-
 import './not-found.scss'
+import Section from '@/layouts/Section'
+import SectionCallback from '@/sections/SectionCallback'
+import { CONTENT } from '@/constants/content'
+import Button from '@/components/Button'
 
 export const metadata = {
   title: '404 - Сторінку не знайдено',
@@ -10,31 +12,19 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <main className="not-found">
-      <div className="not-found__container">
-        <div className="not-found__content">
-          <h1 className="not-found__title">404</h1>
-
-          <p className="not-found__subtitle">Сторінку не знайдено</p>
-
-          <p className="not-found__description">
-            Вибачте, але такої сторінки не існує або вона була переміщена.
-          </p>
-
-          <div className="not-found__actions">
-            <Link href="/" className="not-found__link not-found__link--primary">
-              Повернутися на головну
-            </Link>
-
-            <Link
-              href="/poslugi"
-              className="not-found__link not-found__link--secondary"
-            >
-              Переглянути всі послуги →
-            </Link>
-          </div>
-        </div>
-      </div>
-    </main>
+    <>
+      <Section
+        id="not-found"
+        className="not-found"
+        title="404"
+        headingLevel="h1"
+        description={CONTENT.notFound}
+        divider={false}
+        backgroundColor="#ebebeb"
+      >
+        <Button href="/">{CONTENT.backToHomepage}</Button>
+      </Section>
+      <SectionCallback />
+    </>
   )
 }

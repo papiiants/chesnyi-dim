@@ -1,4 +1,4 @@
-import { fetchAPI } from '@/lib/fetchApi'
+import { fetchAPI } from '@/lib/fetchAPI'
 import { WPPage } from '@/types/wordpress'
 
 export interface ContactsACF {

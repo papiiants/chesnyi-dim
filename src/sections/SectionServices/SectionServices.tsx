@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Section from '@/layouts/Section'
 import { WPPage } from '@/types/wordpress'
 import './SectionServices.scss'
-import { fetchAPI } from '@/lib/fetchApi'
+import { fetchAPI } from '@/lib/fetchAPI'
 import Reveal from '@/components/Reveal'
 
 async function SectionServices() {

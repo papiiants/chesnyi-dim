@@ -1,4 +1,4 @@
-import { fetchAPI } from '@/lib/fetchApi'
+import { fetchAPI } from '@/lib/fetchAPI'
 import { WPMenuItem } from '@/types/wordpress'
 
 export async function getMenu(): Promise<WPMenuItem[]> {

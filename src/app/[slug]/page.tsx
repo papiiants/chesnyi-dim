@@ -26,6 +26,12 @@ export async function generateMetadata({ params }: PageProps) {
 export default async function Page({ params }: PageProps) {
   const { slug } = await params
 
+  console.log(
+    'NEXT_PUBLIC_WORDPRESS_URL:',
+    process.env.NEXT_PUBLIC_WORDPRESS_URL
+  )
+  console.log('Пытаемся загрузить страницу:', slug)
+
   const page = await getPage(slug)
 
   if (!page) {
