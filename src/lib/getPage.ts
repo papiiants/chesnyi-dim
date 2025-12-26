@@ -11,8 +11,9 @@ export default async function getPage(slug: string): Promise<WPPage | null> {
     )
 
     return data?.[0] ?? null
-  } catch (err) {
-    console.error(`Ошибка получения страницы "${slug}":`, err)
-    return null
+  } catch (err: any) {
+    console.error(`✗ Ошибка загрузки страницы "${slug}":`, err.message)
+    if (err.cause) console.error('Причина:', err.cause)
+    return null // ← это спасает сборку!
   }
 }
