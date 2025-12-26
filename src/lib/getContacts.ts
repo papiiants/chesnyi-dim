@@ -9,21 +9,29 @@ export interface ContactsACF {
 }
 
 export async function getContactsData(): Promise<ContactsACF> {
-  const pages = await fetchAPI<WPPage<ContactsACF>[]>(
-    `/wp/v2/pages?slug=kontakti&_fields=acf`,
-    {
-      next: { revalidate: 60 }
-    }
-  )
+  try {
+    const pages = await fetchAPI<WPPage<ContactsACF>[]>(
+      `/wp/v2/pages?slug=kontakti`,
+      {
+        next: { revalidate: 60 }
+      }
+    )
 
-  const acfData = pages[0]?.acf
-
-  return (
-    acfData || {
+    return (
+      pages?.[0]?.acf || {
+        phone: '',
+        email: '',
+        address: '',
+        instagram_url: undefined
+      }
+    )
+  } catch (err) {
+    console.warn('[getContactsData] Не удалось загрузить контакты:', err)
+    return {
       phone: '',
       email: '',
       address: '',
       instagram_url: undefined
     }
-  )
+  }
 }

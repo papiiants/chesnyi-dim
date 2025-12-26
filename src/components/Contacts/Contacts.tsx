@@ -2,7 +2,6 @@ import { CONTENT } from '@/constants/content'
 import IconBox from '@/components/IconBox'
 import ContactForm from '@/components/ContactForm'
 import { getContactsData } from '@/lib/getContacts'
-import Button from '@/components/Button'
 import './Contacts.scss'
 import Reveal from '@/components/Reveal'
 
