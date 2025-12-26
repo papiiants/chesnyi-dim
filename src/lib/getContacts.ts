@@ -8,30 +8,19 @@ export interface ContactsACF {
   instagram_url?: string
 }
 
-export async function getContactsData(): Promise<ContactsACF> {
-  try {
-    const pages = await fetchAPI<WPPage<ContactsACF>[]>(
-      `/wp/v2/pages?slug=kontakti`,
-      {
-        next: { revalidate: 60 }
-      }
-    )
+export default async function getContacts(): Promise<ContactsACF> {
+  const pages = await fetchAPI<WPPage<ContactsACF>[]>(
+    `/wp/v2/pages?slug=kontakti`
+  )
 
-    return (
-      pages?.[0]?.acf || {
-        phone: '',
-        email: '',
-        address: '',
-        instagram_url: undefined
-      }
-    )
-  } catch (err) {
-    console.warn('[getContactsData] Не удалось загрузить контакты:', err)
-    return {
+  const acfData = pages?.[0]?.acf
+
+  return (
+    acfData || {
       phone: '',
       email: '',
       address: '',
       instagram_url: undefined
     }
-  }
+  )
 }

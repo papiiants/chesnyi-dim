@@ -6,12 +6,9 @@ import { fetchAPI } from '@/lib/fetchAPI'
 import Reveal from '@/components/Reveal'
 
 async function SectionServices() {
-  const pages = await fetchAPI<WPPage[]>(
-    '/wp/v2/pages/?parent=18&_fields=id,slug,title,acf',
-    {
-      next: { revalidate: 60 }
-    }
-  )
+  const pages = await fetchAPI<WPPage[]>('/wp/v2/pages/?parent=18', {
+    next: { revalidate: 60 }
+  })
   return (
     <Section id="services" className="services" divider={false}>
       <Reveal effect="fade">

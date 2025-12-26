@@ -1,12 +1,12 @@
 import { CONTENT } from '@/constants/content'
 import IconBox from '@/components/IconBox'
 import ContactForm from '@/components/ContactForm'
-import { getContactsData } from '@/lib/getContacts'
+import getContacts from '@/lib/getContacts'
 import './Contacts.scss'
 import Reveal from '@/components/Reveal'
 
 export default async function Contacts() {
-  const { phone, email, address } = await getContactsData()
+  const { phone, email, address } = await getContacts()
 
   return (
     <Reveal effect="fade">

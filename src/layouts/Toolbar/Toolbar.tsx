@@ -1,9 +1,9 @@
 import IconBox from '@/components/IconBox'
 import './Toolbar.scss'
-import { getContactsData } from '@/lib/getContacts'
+import getContacts from '@/lib/getContacts'
 
 export default async function Toolbar() {
-  const { phone, email, address } = await getContactsData()
+  const { phone, email, address } = await getContacts()
 
   return (
     <div className="toolbar">
