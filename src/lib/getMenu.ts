@@ -9,5 +9,7 @@ export async function getMenu(): Promise<WPMenuItem[]> {
     }
   )
 
-  return data.main_menu
+  console.log('Получено из API:', data)
+
+  return data?.main_menu || []
 }

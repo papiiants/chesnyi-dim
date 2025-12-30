@@ -1,73 +1,44 @@
 'use client'
 
 import './Menu.scss'
-import { WPMenuItem, WPSubMenuItem } from '@/types/wordpress'
+import { WPMenuItem } from '@/types/wordpress'
 import ActiveLink from '@/components/ActiveLink'
 import { ChevronDown } from 'lucide-react'
 import clsx from 'clsx'
-import useMenu from '@/hooks/useMenu'
 
 interface MenuProps {
+  menu: WPMenuItem[]
   isOpen?: boolean
   className?: string
   onItemClick?: () => void
 }
 
 export default function Menu({
-  isOpen = true,
+  menu = [],
+  isOpen = false,
   className,
   onItemClick
 }: MenuProps) {
-  const { menu, loading, error } = useMenu()
-
-  if (loading) {
-    return (
-      <nav
-        className={clsx('header__menu menu', className, {
-          'menu--open': isOpen
-        })}
-      >
-        <ul className="menu__list skeleton">
-          {[1, 2, 3, 4].map((i) => (
-            <li key={i} className="menu__item skeleton-item" />
-          ))}
-        </ul>
-      </nav>
-    )
-  }
-
-  if (error) {
-    return (
-      <nav className={clsx('header__menu menu', className)}>
-        <ul className="menu__list">
-          <li className="menu__item">Меню недоступне</li>
-        </ul>
-      </nav>
-    )
+  if (menu.length === 0) {
+    return null
   }
 
   return (
     <nav
-      className={clsx('header__menu menu', className, {
-        'menu--open': isOpen
-      })}
+      className={clsx('menu', className, isOpen && 'menu--open')}
       aria-hidden={!isOpen}
     >
       <ul className="menu__list" role="menu">
-        {menu.map((item: WPMenuItem) => {
-          const hasSubmenu =
-            Array.isArray(item.submenu) && item.submenu.length > 0
-
-          const submenuItems: WPSubMenuItem[] = Array.isArray(item.submenu)
-            ? item.submenu
-            : []
+        {menu.map((item) => {
+          const hasSubmenu = !!item.submenu?.length
 
           return (
             <li
-              key={item.title}
-              className={
-                hasSubmenu ? 'menu__item menu__item--has-submenu' : 'menu__item'
-              }
+              key={item.slug}
+              className={clsx(
+                'menu__item',
+                hasSubmenu && 'menu__item--has-submenu'
+              )}
               role="menuitem"
             >
               <ActiveLink
@@ -81,9 +52,9 @@ export default function Menu({
 
               {hasSubmenu && (
                 <ul className="menu__submenu" role="menu">
-                  {submenuItems.map((sub: WPSubMenuItem) => (
+                  {item.submenu!.map((sub) => (
                     <li
-                      key={sub.title}
+                      key={sub.slug}
                       className="menu__submenu-item"
                       role="menuitem"
                     >

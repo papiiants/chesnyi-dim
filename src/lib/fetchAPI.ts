@@ -5,8 +5,6 @@ export async function fetchAPI<T>(
   const url = `${process.env.NEXT_PUBLIC_WORDPRESS_URL}${endpoint.startsWith('/') ? '' : '/'}${endpoint}`
 
   try {
-    console.log(`[API Fetch] → ${url}`)
-
     const res = await fetch(url, {
       ...options,
       headers: {

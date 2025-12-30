@@ -15,7 +15,7 @@ async function SectionServices() {
         <ul className="services-list">
           {pages.map((page: WPPage) => (
             <li key={page.id} className="services-list__item">
-              <Link href={`${page.slug}`} className="services-list__link">
+              <Link href={page.slug} className="services-list__link">
                 {page.title.rendered}
                 {page.acf?.service_list !== null && (
                   <div

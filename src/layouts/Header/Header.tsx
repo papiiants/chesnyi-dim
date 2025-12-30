@@ -7,33 +7,33 @@ import { useEffect, useRef, useState } from 'react'
 import { IMAGES } from '@/constants/content'
 import BurgerButton from '@/components/BurgerButton'
 import Reveal from '@/components/Reveal'
+import { WPMenuItem } from '@/types/wordpress'
 
-export default function Header() {
+interface HeaderProps {
+  menu: WPMenuItem[]
+}
+
+export default function Header({ menu }: HeaderProps) {
   const headerRef = useRef<HTMLElement>(null)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const header = headerRef.current
     if (!header) return
 
     const handleScroll = () => {
-      if (window.scrollY > 80) {
-        header.classList.add('header--sticky')
-      } else {
-        header.classList.remove('header--sticky')
-      }
+      header.classList.toggle('header--sticky', window.scrollY > 80)
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  const onToggle = () => {
-    document.body.classList.toggle('is-fixed')
-    setIsMobileMenuOpen(!isMobileMenuOpen)
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prev) => !prev)
+    document.body.classList.toggle('is-fixed', !isMobileMenuOpen)
   }
 
   return (
@@ -47,23 +47,27 @@ export default function Header() {
                 alt="Логотип Чесний Дім"
                 className="header__logo-image"
                 width={150}
+                height={60}
               />
             </Link>
           </div>
         </Reveal>
-        <Menu />
+
+        <Menu menu={menu} className="menu--desktop" />
+
         <BurgerButton
           isOpen={isMobileMenuOpen}
-          onClick={onToggle}
-          aria-controls="menu"
-        />
-
-        <Menu
-          isOpen={isMobileMenuOpen}
-          className="menu--mobile"
-          onItemClick={onToggle}
+          onClick={toggleMobileMenu}
+          aria-controls="mobile-menu"
         />
       </div>
+
+      <Menu
+        menu={menu}
+        isOpen={isMobileMenuOpen}
+        className="menu--mobile"
+        onItemClick={toggleMobileMenu}
+      />
     </header>
   )
 }

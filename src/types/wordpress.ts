@@ -8,7 +8,7 @@ export interface WPMenuItem {
   title: string
   slug: string
   blank?: boolean
-  submenu: false | WPSubMenuItem[]
+  submenu?: WPSubMenuItem[]
 }
 
 export interface WPPage<T = Record<string, any>> {

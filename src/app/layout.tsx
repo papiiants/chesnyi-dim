@@ -1,9 +1,9 @@
 import '@/styles/index.scss'
 import { Montserrat } from 'next/font/google'
-import Header from '@/layouts/Header'
 import Footer from '@/layouts/Footer'
 import Toolbar from '@/layouts/Toolbar'
 import React from 'react'
+import HeaderWrapper from '@/components/HeaderWrapper'
 
 const montserrat = Montserrat({
   subsets: ['cyrillic', 'latin'],
@@ -21,7 +21,7 @@ export default async function RootLayout({
     <html lang="uk" data-scroll-behavior="smooth">
       <body className={montserrat.className}>
         <Toolbar />
-        <Header />
+        <HeaderWrapper />
         <main>{children}</main>
         <Footer />
       </body>
