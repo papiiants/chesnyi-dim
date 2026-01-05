@@ -2,6 +2,9 @@
 
 Modern implementation of a website using **WordPress as headless CMS** + **Next.js 14+ (App Router)** + **TypeScript**
 
+## Website
+
+https://chesnyi-dim.com.ua/
 
 ## Main Tech Stack
 
