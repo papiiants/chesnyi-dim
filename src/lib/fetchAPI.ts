@@ -9,7 +9,7 @@ export async function fetchAPI<T>(
       ...options,
       headers: {
         'User-Agent':
-          'Mozilla/5.0 (compatible; Next.js/Vercel-Build; +https://chesnyi-dim.com.ua)'
+          'Mozilla/5.0 (compatible; Next.js/Vercel-Build; +https://backend.chesnyi-dim.com.ua)'
       },
       next: { revalidate: 60 }
     })

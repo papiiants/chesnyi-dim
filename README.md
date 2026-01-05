@@ -29,7 +29,7 @@ pnpm install
 cp .env.local.example .env.local
 
 # Most important variables:
-WORDPRESS_API_URL=https://chesnyi-dim.com.ua/wp-json
+WORDPRESS_API_URL=https://backend.chesnyi-dim.com.ua/wp-json
 
 # 4. Start development server
 npm run dev

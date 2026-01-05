@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'chesnyi-dim.com.ua',
+        hostname: 'backend.chesnyi-dim.com.ua',
         port: '',
         pathname: '/**'
       }

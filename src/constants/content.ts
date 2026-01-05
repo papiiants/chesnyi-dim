@@ -18,16 +18,17 @@ export const CONTENT = {
 }
 
 export const IMAGES = {
-  logo: 'https://chesnyi-dim.com.ua/wp-content/uploads/2024/04/logo_01.svg',
+  logo: 'https://backend.chesnyi-dim.com.ua/wp-content/uploads/2024/04/logo_01.svg',
   logoDark20:
-    'http://chesnyi-dim.com.ua/wp-content/uploads/2024/04/logo_01_5.svg',
+    'http://backend.chesnyi-dim.com.ua/wp-content/uploads/2024/04/logo_01_5.svg',
   logoDark30:
-    'http://chesnyi-dim.com.ua/wp-content/uploads/2024/04/logo_01_10.svg',
+    'http://backend.chesnyi-dim.com.ua/wp-content/uploads/2024/04/logo_01_10.svg',
   logoLight:
-    'http://chesnyi-dim.com.ua/wp-content/uploads/2024/04/logo_01_white.svg',
+    'http://backend.chesnyi-dim.com.ua/wp-content/uploads/2024/04/logo_01_white.svg',
   logoLight20:
-    'http://chesnyi-dim.com.ua/wp-content/uploads/2024/04/logo_01_white_20.svg',
-  heroBg: 'https://chesnyi-dim.com.ua/wp-content/uploads/2024/04/bg_01.webp'
+    'http://backend.chesnyi-dim.com.ua/wp-content/uploads/2024/04/logo_01_white_20.svg',
+  heroBg:
+    'https://backend.chesnyi-dim.com.ua/wp-content/uploads/2024/04/bg_01.webp'
 }
 
 export const FORM = {
